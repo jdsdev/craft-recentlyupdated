@@ -16,7 +16,7 @@ class RecentlyUpdatedAsset extends AssetBundle
    */
   public function init()
   {
-    $this->sourcePath = "@jdsdev/recentlyupdated/assets";
+    $this->sourcePath = '@jdsdev/recentlyupdated/assets';
 
     $this->depends = [
       CpAsset::class

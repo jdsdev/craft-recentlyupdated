@@ -3,6 +3,7 @@
 namespace jdsdev\recentlyupdated\variables;
 
 use Craft;
+use craft\models\EntryVersion;
 
 /**
  * Class RecentlyUpdatedVariable
@@ -23,9 +24,9 @@ class RecentlyUpdatedVariable
    * @param int|null $limit The limit on the number of versions to retrieve.
    * @param bool $includeCurrent Whether to include the current "top" version of the entry.
    *
-   * @return array
+   * @return EntryVersion[]
    */
-  public function getVersions($entryId, $siteId = null, $limit = 10, $includeCurrent = false)
+  public function getVersions($entryId, $siteId = null, $limit = 10, $includeCurrent = false): array
   {
     return Craft::$app->entryRevisions->getVersionsByEntryId($entryId, $siteId, $limit, $includeCurrent);
   }
@@ -36,11 +37,10 @@ class RecentlyUpdatedVariable
    * @param int $entry The entry to search for.
    * @param int|null $site The site to search on.
    *
-   * @return EntryVersionModel
+   * @return EntryVersion
    */
-  public function getCurrentVersion($entryId, $siteId = null)
+  public function getCurrentVersion($entryId, $siteId = null): EntryVersion
   {
-    $siteId = $site ? $site->id : null;
     $versions = Craft::$app->entryRevisions->getVersionsByEntryId($entryId, $siteId, 1, true);
     return reset($versions);
   }
