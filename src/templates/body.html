@@ -1,0 +1,64 @@
+<div class="recentlyupdated-container">
+{% if entries|length %}
+
+  <table class="data fullwidth">
+  {% for entry in entries %}
+    <tr><td>
+      {# TODO: Allow custom fields to be specified in settings #}
+      {% if entry['private'] is defined and entry.private %}
+        <span class="icon secure"></span>
+      {% endif %}
+
+      {# Entry Title #}
+      <a href="{{ entry.getCpEditUrl() }}">{{ entry.title }}</a>
+
+      {# Entry Status #}
+      <span class="status {{ entry.status }}"></span>
+
+      {# Entry Breadcrumb #}
+      <span id="crumbs" class="light" style="padding:0;">
+        <nav><ul>
+          <li><span class="smalltext">{{ entry.section }}</span></li>
+
+          {% for crumb in entry.getAncestors().all() %}
+            <li><span class="smalltext">{{ crumb }}</span></li>
+          {% endfor %}
+        </ul></nav>
+      </span>
+
+      {# Entry Versions #}
+      {% set versions = craft.recentlyUpdated.getVersions(entry.id, siteId, 2, true) %}
+
+      {% for version in versions %}
+        <span class="smalltext">
+        {{ "Version {num}"|t({ num: version.num }) }}
+        <span class="light">
+        {{ version.dateCreated|timestamp('short') }},
+        {{ version.creator }}
+        </span>
+        {% if version.revisionNotes|length %}
+          <br>
+          <span class="light">
+            <span class="info"></span>
+            {{ version.revisionNotes }}
+          </span>
+        {% endif %}
+        </span>
+        <br>
+      {% else %}
+        <span class="light">
+        {{ entry.dateUpdated|timestamp('short') }}
+        {%- if CraftEdition >= CraftPro and entry.author %}, {{ entry.author.username }}{% endif -%}
+        </span>
+      {% endfor %}
+
+    </td></tr>
+  {% endfor %}
+  </table>
+
+{% else %}
+
+  <p>{{ "No entries exist yet."|t('app') }}</p>
+
+{% endif %}
+</div>

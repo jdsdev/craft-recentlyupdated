@@ -1,0 +1,25 @@
+{
+  "name": "jdsdev/craft-recentlyupdated",
+  "description": "Add a dashboard widget for recently updated entries",
+  "version": "2.0.0-beta.2",
+  "type": "craft-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jonathan@jdsdev.com",
+      "homepage": "https://jdsdev.com/"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "jdsdev\\recentlyupdated\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "Recently Updated",
+    "handle": "recently-updated"
+  }
+}
