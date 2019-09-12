@@ -4,6 +4,12 @@
   "version": "2.1.1",
   "type": "craft-plugin",
   "license": "MIT",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin"
+  ],
   "authors": [
     {
       "name": "jonathan@jdsdev.com",
