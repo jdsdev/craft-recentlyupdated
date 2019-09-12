@@ -16,7 +16,7 @@
       <span class="status {{ entry.status }}"></span>
 
       {# Entry Breadcrumb #}
-      <span id="crumbs" class="light" style="padding:0;">
+      <span id="crumbs" class="light" style="padding:0;background:#fff;">
         <nav><ul>
           <li><span class="smalltext">{{ entry.section }}</span></li>
 
@@ -31,7 +31,7 @@
 
       {% for version in versions %}
         <span class="smalltext">
-        {{ "Version {num}"|t({ num: version.num }) }}
+        {{ version.revisionLabel }}
         <span class="light">
         {{ version.dateCreated|timestamp('short') }},
         {{ version.creator }}
@@ -39,7 +39,7 @@
         {% if version.revisionNotes|length %}
           <br>
           <span class="light">
-            <span class="info"></span>
+            <span class="info" style="vertical-align:text-bottom;"></span>
             {{ version.revisionNotes }}
           </span>
         {% endif %}

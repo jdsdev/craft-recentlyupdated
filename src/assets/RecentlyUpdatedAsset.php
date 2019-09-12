@@ -11,21 +11,21 @@ use craft\web\assets\cp\CpAsset;
  */
 class RecentlyUpdatedAsset extends AssetBundle
 {
-  /**
-   * @inheritdoc
-   */
-  public function init()
-  {
-    $this->sourcePath = '@jdsdev/recentlyupdated/assets';
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        $this->sourcePath = '@jdsdev/recentlyupdated/assets';
 
-    $this->depends = [
-      CpAsset::class
-    ];
+        $this->depends = [
+            CpAsset::class
+        ];
 
-    $this->js = [
-      'js/RecentlyUpdatedWidget.js',
-    ];
+        $this->js = [
+            'js/RecentlyUpdatedWidget.js',
+        ];
 
-    parent::init();
-  }
+        parent::init();
+    }
 }
