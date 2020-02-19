@@ -1,5 +1,11 @@
 # Recently Updated Changelog
 
+## 2.1.2 - 2020-02-19
+
+### Fixed
+
+- Fix styles to work with Craft 3.4.
+
 ## 2.1.1 - 2019-08-09
 
 ### Fixed
