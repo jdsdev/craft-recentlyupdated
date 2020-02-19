@@ -1,6 +1,6 @@
 {
   "name": "jdsdev/craft-recentlyupdated",
-  "description": "Add a dashboard widget to show recently updated entries",
+  "description": "Add a Craft dashboard widget to show recently updated entries.",
   "version": "2.1.1",
   "type": "craft-plugin",
   "license": "MIT",
