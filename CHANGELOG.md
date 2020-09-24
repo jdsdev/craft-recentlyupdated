@@ -1,5 +1,11 @@
 # Recently Updated Changelog
 
+## 2.1.3 - 2020-09-24
+
+### Fixed
+
+- Update plugin to work with Craft 3.5.
+
 ## 2.1.2 - 2020-02-19
 
 ### Fixed

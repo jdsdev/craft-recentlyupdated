@@ -46,12 +46,12 @@ class RecentlyUpdated extends Widget
     public $section = '*';
 
     /**
-     * string Site ID that widget should pull entries from
+     * @var int|null Site ID that widget should pull entries from
      */
     public $siteId;
 
     /**
-     * int Total number of entries that widget should show
+     * @var int Total number of entries that widget should show
      */
     public $limit = 10;
 
@@ -73,9 +73,9 @@ class RecentlyUpdated extends Widget
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function defineRules(): array
     {
-        $rules = parent::rules();
+        $rules = parent::defineRules();
         $rules[] = [['siteId', 'limit'], 'number', 'integerOnly' => true];
 
         return $rules;
@@ -186,8 +186,7 @@ class RecentlyUpdated extends Widget
         }
 
         $query = Entry::find();
-        $query->status(null);
-        $query->enabledForSite(false);
+        $query->anyStatus();
         $query->siteId($targetSiteId);
         $query->sectionId($targetSectionId);
         $query->editable(true);
